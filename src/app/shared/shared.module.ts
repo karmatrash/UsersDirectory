@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
     imports: [
-        CommonModule,
-        HttpClientModule
+        CommonModule
     ],
     declarations: []
 })
