@@ -1,12 +1,18 @@
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
+import { PhonePipe } from './pipes/phone.pipe';
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: []
+    declarations: [
+        PhonePipe
+    ],
+    exports: [
+        PhonePipe
+    ]
 })
 export class SharedModule {
 }

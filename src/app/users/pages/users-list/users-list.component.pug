@@ -1,0 +1,14 @@
+.container
+    table(class='table table-hover')
+        thead
+            tr
+                th ID
+                th Username
+                th Email
+                th Phone
+        tbody
+            tr(*ngFor="let user of usersService.users | async")
+                th {{ user.id }}
+                th {{ user.fullName }}
+                th {{ user.email }}
+                th {{ user.phone | phone }}
