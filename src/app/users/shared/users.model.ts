@@ -29,7 +29,7 @@ export class User {
         }
     }
 
-    private get fullName(): string {
+    get fullName(): string {
         return [this.first_name, this.last_name].join(' ');
     }
 }

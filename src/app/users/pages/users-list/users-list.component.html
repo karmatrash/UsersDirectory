@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of usersService.users | async">
+      <tr *ngFor="let user of usersService.users | async" [routerLink]="['/users', user.id]">
         <th>{{ user.id }}</th>
         <th>{{ user.fullName }}</th>
         <th>{{ user.email }}</th>
