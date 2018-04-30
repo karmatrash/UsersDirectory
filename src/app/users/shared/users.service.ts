@@ -23,13 +23,25 @@ export class UsersService {
         return this._users.asObservable();
     }
 
+    /**
+     * All the awful stuff with Observable User[] is made to get the UID from after last FireStore update
+     * April 3, 2018 - $key variable become deprecated
+     * @param {AngularFirestore} afs
+     */
     constructor(private afs: AngularFirestore) {
         this.usersCol = this.afs.collection('users');
-        this.usersObservableFireStoreArray = this.usersCol.valueChanges();
+        this.usersObservableFireStoreArray = this.usersCol.snapshotChanges()
+            .map(changes => {
+                return changes.map(a => {
+                    const data = a.payload.doc.data() as User;
+                    data.key = a.payload.doc.id;
+                    return data;
+                });
+            });
 
+        // Observable Data Service BHS approach for storing async changing data
         this.usersObservableFireStoreArray.subscribe(users => {
             this._users.next(users.map(user => new User(user)));
-            console.log(this._users.getValue());
         });
     }
 }

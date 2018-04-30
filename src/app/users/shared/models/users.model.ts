@@ -1,4 +1,5 @@
 export class User {
+    key: string;
     id: number;
     email: string;
     gender: string;
@@ -27,6 +28,9 @@ export class User {
         if (obj.last_name) {
             this.last_name = obj.last_name;
         }
+        if (obj.key) {
+            this.key = obj.key;
+        }
     }
 
     get fullName(): string {
@@ -35,6 +39,7 @@ export class User {
 }
 
 interface IFullUserInfo {
+    key: string;
     id: number;
     email: string;
     gender: string;
