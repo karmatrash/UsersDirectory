@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -17,8 +18,8 @@ const usersRoutes: Routes = [
         component: UsersComponent,
         children: [
             {path: '', component: UsersListComponent},
+            {path: 'create', component: UserCreateComponent},
             {path: ':id', component: UserDetailsComponent},
-            {path: 'new', component: UserCreateComponent},
         ]
     }
 ];
@@ -27,6 +28,8 @@ const usersRoutes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(usersRoutes),
+        FormsModule,
+        ReactiveFormsModule,
         SharedModule
     ],
     declarations: [

@@ -22,9 +22,4 @@ export class UsersListComponent implements OnInit {
                 this.users = users;
             });
     }
-
-    onCreateUser() {
-        console.log('create');
-        this.router.navigateByUrl('/users/new');
-    }
 }

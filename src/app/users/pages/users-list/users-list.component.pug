@@ -1,3 +1,3 @@
 .container
-    button(class="btn btn-success", (click)="onCreateUser()") Create user
+    button(class="btn btn-success", [routerLink]="['create']") Create user
     app-directory-table([data]="users")

@@ -1,3 +1,33 @@
-<p>
-  user-create works!
-</p>
+<div class="container">
+    <form [formGroup]="userData" (ngSubmit)="onSubmitForm(userData)">
+        <div class="form-control">
+            <label for="first_name">First name:</label>
+            <input id="first_name"
+                   formControlName="first_name"
+                   type="text">
+        </div>
+
+        <div class="form-control">
+            <label for="last_name">Last name:</label>
+            <input id="last_name"
+                   formControlName="last_name"
+                   type="text">
+        </div>
+
+        <div class="form-control">
+            <label for="email">Email:</label>
+            <input id="email"
+                   formControlName="email"
+                   type="email">
+        </div>
+
+        <div class="form-control">
+            <label for="phone">Phone:</label>
+            <input id="phone"
+                   formControlName="phone"
+                   type="number">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
