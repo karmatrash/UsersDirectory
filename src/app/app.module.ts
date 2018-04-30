@@ -2,10 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
 
 const rootRoutes: Routes = [
     { path: 'users', loadChildren: 'app/users/users.module#UsersModule' },
@@ -21,10 +24,13 @@ const rootRoutes: Routes = [
     imports: [
         BrowserModule,
         RouterModule.forRoot(rootRoutes),
-        SharedModule,
+        CoreModule,
+        AngularFireModule.initializeApp(environment.firebase)
+    ],
+    exports: [
         CoreModule
     ],
-    providers: [],
+    providers: [AngularFireDatabase],
     bootstrap: [AppComponent]
 })
 export class AppModule {

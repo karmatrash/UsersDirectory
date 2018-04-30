@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
-import { User } from '../../../users/shared/users.model';
+import { User } from '../../../users/shared/models/users.model';
 
 @Component({
     selector: 'app-directory-table',

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { User } from './users.model';
+import { User } from './models/users.model';
 
 @Injectable()
 export class UsersService {
