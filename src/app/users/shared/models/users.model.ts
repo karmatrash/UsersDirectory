@@ -1,3 +1,5 @@
+import { IFullUserInfo } from '../interfaces/user.interface';
+
 export class User {
     key: string;
     id: number;
@@ -36,14 +38,4 @@ export class User {
     get fullName(): string {
         return [this.first_name, this.last_name].join(' ');
     }
-}
-
-interface IFullUserInfo {
-    key: string;
-    id: number;
-    email: string;
-    gender: string;
-    phone: string;
-    first_name: string;
-    last_name: string;
 }

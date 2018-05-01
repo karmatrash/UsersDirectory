@@ -1,6 +1,7 @@
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
 
+import { IFullUserInfo } from './interfaces/user.interface';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { User } from './models/users.model';
@@ -10,7 +11,7 @@ export class UsersService {
     /**
      * Angular FireStore async subscription variables to UsersCollection
      */
-    private usersCol: AngularFirestoreCollection<User>;
+    public usersCol: AngularFirestoreCollection<User>;
     private usersObservableFireStoreArray: Observable<User[]>;
 
     /**
@@ -43,5 +44,17 @@ export class UsersService {
         this.usersObservableFireStoreArray.subscribe(users => {
             this._users.next(users.map(user => new User(user)));
         });
+    }
+
+    /**
+     * Updating collection document by $key with new UserDTO Data
+     * @param {string} key
+     * @param {IFullUserInfo} user
+     */
+    public updateUser(key: string, user: IFullUserInfo) {
+        this.usersCol.doc(key).update(user)
+            .then(() => {
+                console.log('User has been successfully updated');
+            });
     }
 }

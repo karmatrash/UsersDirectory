@@ -8,7 +8,7 @@ table(class='table table-hover')
     tbody
         tr(
         *ngFor="let user of data",
-        [routerLink]="['/users', user.id]"
+        [routerLink]="['/users', user.key]"
         )
             th {{ user.id }}
             th {{ user.fullName }}
