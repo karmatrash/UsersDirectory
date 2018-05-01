@@ -12,7 +12,6 @@ import { User } from '../../shared/models/users.model';
 export class UserDetailsComponent implements OnInit {
 
     public userKey: string;
-
     public user: User;
 
     constructor(private route: ActivatedRoute,
@@ -22,6 +21,12 @@ export class UserDetailsComponent implements OnInit {
     ngOnInit() {
         this.userKey = this.route.snapshot.params.key;
         console.log(this.userKey);
+
+        this.users.getUserByUID(this.userKey)
+            .subscribe((user) => {
+                this.user = user;
+                console.log(this.user);
+            });
     }
 
     onUpdate() {

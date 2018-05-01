@@ -1,4 +1,4 @@
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
 
 import { IFullUserInfo } from './interfaces/user.interface';
@@ -56,5 +56,15 @@ export class UsersService {
             .then(() => {
                 console.log('User has been successfully updated');
             });
+    }
+
+    /**
+     * Request for getting user from collection, returning the Observable, might turn it into JSON obj in subscriber
+     * @param {string} key
+     * @returns {Observable<User>}
+     */
+    public getUserByUID(key: string): Observable<User> {
+        const currentUserDoc: AngularFirestoreDocument<User> = this.usersCol.doc(key);
+        return currentUserDoc.valueChanges();
     }
 }
