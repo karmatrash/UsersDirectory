@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { UserForms } from '../../shared/user.forms';
+import { UsersService } from '../../shared/users.service';
+import { IFullUserInfo } from '../../shared/interfaces/user.interface';
 
 @Component({
     selector: 'app-user-create',
@@ -9,15 +11,13 @@ import { UserForms } from '../../shared/user.forms';
     styleUrls: ['./user-create.component.scss']
 })
 export class UserCreateComponent implements OnInit {
-    userData: FormGroup;
 
-    constructor(private forms: UserForms) {}
+    constructor(private usersService: UsersService) {}
 
-    ngOnInit() {
-        this.userData = this.forms.getUserForm();
-    }
+    ngOnInit() {}
 
-    onSubmitForm(form: FormGroup) {
-        console.log(form.value);
+    createUser(v: IFullUserInfo) {
+        console.log(v);
+        this.usersService.createUser(v);
     }
 }

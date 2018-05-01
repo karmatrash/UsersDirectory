@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../shared/users.service';
 import { User } from '../../shared/models/users.model';
 import { Observable } from 'rxjs/Observable';
+import { IFullUserInfo } from '../../shared/interfaces/user.interface';
 
 @Component({
     selector: 'app-user-details',
@@ -24,15 +25,18 @@ export class UserDetailsComponent implements OnInit {
         this.user = this.users.getUserByUID(this.userKey);
     }
 
-    onUpdate() {
-        this.users.updateUser(this.userKey, {
-            key: this.userKey,
-            id: 123,
-            email: 'testEditEmail',
-            gender: 'male',
-            phone: '9512545021',
-            first_name: 'test',
-            last_name: 'editor',
-        });
+    // onUpdate() {
+    //     this.users.updateUser(this.userKey, {
+    //         key: this.userKey,
+    //         email: 'testEditEmail',
+    //         gender: 'male',
+    //         phone: '9512545021',
+    //         first_name: 'test',
+    //         last_name: 'editor',
+    //     });
+    // }
+
+    editUser(user: IFullUserInfo) {
+        console.log(user);
     }
 }

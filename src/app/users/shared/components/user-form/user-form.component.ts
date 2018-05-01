@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { User } from '../../models/users.model';
@@ -16,6 +16,7 @@ export class UserFormComponent implements OnInit {
 
     @Input() target: string;
     @Input() data: Observable<User>;
+    @Output() formSubmitted = new EventEmitter();
 
     constructor(private forms: UserForms) {
     }
@@ -35,6 +36,6 @@ export class UserFormComponent implements OnInit {
     }
 
     onSubmitForm(v: IFullUserInfo) {
-        console.log(v);
+        this.formSubmitted.emit(v);
     }
 }

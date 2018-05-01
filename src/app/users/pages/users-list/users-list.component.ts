@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { UsersService } from '../../shared/users.service';
 import { User } from '../../shared/models/users.model';
@@ -13,8 +12,7 @@ export class UsersListComponent implements OnInit {
 
     public users: Array<User>;
 
-    constructor(private usersService: UsersService,
-                private router: Router) {}
+    constructor(private usersService: UsersService) {}
 
     ngOnInit() {
         this.usersService.users

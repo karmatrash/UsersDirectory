@@ -67,4 +67,11 @@ export class UsersService {
         const currentUserDoc: AngularFirestoreDocument<User> = this.usersCol.doc(key);
         return currentUserDoc.valueChanges();
     }
+
+    public createUser(user: IFullUserInfo) {
+        this.usersCol.add(user as User)
+            .then(() => {
+                console.log('User has been successfully created');
+            });
+    }
 }

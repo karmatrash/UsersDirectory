@@ -2,17 +2,14 @@ import { IFullUserInfo } from '../interfaces/user.interface';
 
 export class User {
     key: string;
-    id: number;
     email: string;
     gender: string;
     phone: string;
     first_name: string;
     last_name: string;
+    created: string;
 
     constructor(obj: IFullUserInfo) {
-        if (obj.id) {
-            this.id = obj.id;
-        }
         if (obj.email) {
             this.email = obj.email;
         }
