@@ -15,13 +15,10 @@ export class DirectoryTableComponent implements OnInit, OnChanges {
     }
 
     ngOnInit() {
-        console.log(this.data);
     }
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes['data']) {
-            console.log('Changes happened');
-            console.log(changes);
             this.data = changes['data'].currentValue;
         }
     }

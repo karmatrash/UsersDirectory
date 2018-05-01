@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { User } from '../../models/users.model';
 import { UserForms } from '../../user.forms';
+import { Observable } from 'rxjs/Observable';
+import { IFullUserInfo } from '../../interfaces/user.interface';
 
 @Component({
     selector: 'app-user-form',
@@ -12,14 +15,26 @@ export class UserFormComponent implements OnInit {
     userForm: FormGroup;
 
     @Input() target: string;
-    // @Input() data: User | null;
+    @Input() data: Observable<User>;
 
     constructor(private forms: UserForms) {
     }
 
     ngOnInit() {
+        this.userForm = this.forms.getUserForm();
+
+        console.log('User-form component got next data:');
         console.log(this.target);
 
-        this.userForm = this.forms.getUserForm();
+        if (this.data) {
+            this.data.subscribe((user) => {
+                this.userForm.setValue(user);
+                console.log(this.userForm);
+            });
+        }
+    }
+
+    onSubmitForm(v: IFullUserInfo) {
+        console.log(v);
     }
 }
