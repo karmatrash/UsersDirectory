@@ -48,7 +48,6 @@ const usersRoutes: Routes = [
         UserFormComponent
     ],
     providers: [
-        UsersService,
         UserForms
     ]
 })
