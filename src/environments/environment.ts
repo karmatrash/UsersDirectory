@@ -12,6 +12,7 @@ export const environment = {
         projectId: 'users-directory',
         storageBucket: 'users-directory.appspot.com',
         messagingSenderId: '1076393203749'
-    }
+    },
+    gender: ['male', 'female']
 };
 

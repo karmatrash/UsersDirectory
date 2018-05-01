@@ -6,5 +6,6 @@ export interface IFullUserInfo {
     first_name: string;
     last_name: string;
     created: string;
+    status: 'active' | 'disabled';
     updated?: string;
 }

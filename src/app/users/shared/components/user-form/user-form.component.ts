@@ -6,6 +6,7 @@ import { User } from '../../models/users.model';
 import { UserForms } from '../../user.forms';
 import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
     selector: 'app-user-form',
@@ -13,7 +14,9 @@ import * as moment from 'moment';
     styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
+
     userForm: FormGroup;
+    gender: Array<string> = environment.gender;
 
     /**
      * Input param target - defines the sense of submitting - 'create' | 'edit'

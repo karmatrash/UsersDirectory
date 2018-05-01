@@ -9,6 +9,7 @@ export class User {
     last_name: string;
     created: string;
     updated: string;
+    status: 'active' | 'disabled';
 
     constructor(obj: IFullUserInfo) {
         if (obj.email) {
@@ -36,6 +37,9 @@ export class User {
         }
         if (obj.key) {
             this.key = obj.key;
+        }
+        if (obj.status) {
+            this.status = obj.status;
         }
     }
 

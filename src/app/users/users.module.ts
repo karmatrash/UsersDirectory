@@ -12,6 +12,12 @@ import { UsersListComponent } from './pages/users-list/users-list.component';
 import { UsersService } from './shared/users.service';
 import { UsersComponent } from './users.component';
 import { UserForms } from './shared/user.forms';
+import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
+
+const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
+    optionValueField: 'id',
+    optionTextField: 'name'
+};
 
 const usersRoutes: Routes = [
     {
@@ -31,7 +37,8 @@ const usersRoutes: Routes = [
         RouterModule.forChild(usersRoutes),
         FormsModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        NgxSelectModule.forRoot(CustomSelectOptions)
     ],
     declarations: [
         UsersComponent,
