@@ -15,6 +15,7 @@ export class DirectoryTableComponent implements OnInit, OnChanges {
     @Input() data: Array<User> | Array<Role>;
     @Input() caption: string;
     @Input() settings: Array<ColumnSettings>;
+    @Input() tableCellSwitcher: boolean;
     public columnMaps: Array<ColumnSettings>;
 
     constructor() {

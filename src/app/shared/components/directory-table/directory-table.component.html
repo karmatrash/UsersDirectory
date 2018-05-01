@@ -8,7 +8,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let record of data">
-      <td *ngFor="let map of columnMaps">{{ record[map.primaryKey] }}</td>
+      <td *ngFor="let map of columnMaps">
+        <app-table-cell *ngIf="tableCellSwitcher" [value]="record[map.primaryKey]" [key]="map.primaryKey"></app-table-cell><span *ngIf="!tableCellSwitcher">{{ record[map.primaryKey] }}</span>
+      </td>
     </tr>
   </tbody>
 </table>

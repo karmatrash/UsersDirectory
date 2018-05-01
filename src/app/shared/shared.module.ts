@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { DirectoryTableComponent } from './components/directory-table/directory-table.component';
+import { TableCellComponent } from './components/table-cell/table-cell.component';
+
+import { TableDatePipe } from './pipes/table-date.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
 
 @NgModule({
@@ -12,11 +15,15 @@ import { PhonePipe } from './pipes/phone.pipe';
     ],
     declarations: [
         PhonePipe,
-        DirectoryTableComponent
+        TableDatePipe,
+        DirectoryTableComponent,
+        TableCellComponent
     ],
     exports: [
         PhonePipe,
-        DirectoryTableComponent
+        TableDatePipe,
+        DirectoryTableComponent,
+        TableCellComponent
     ]
 })
 export class SharedModule {
