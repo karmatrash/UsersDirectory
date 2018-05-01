@@ -1,4 +1,5 @@
 import { IFullEmployeeInfo } from '../interfaces/employee.interface';
+import { Role } from '../../../roles/role.model';
 
 export class Employee {
     key: string;
@@ -9,6 +10,7 @@ export class Employee {
     last_name: string;
     created: string;
     updated: string;
+    roles?: Array<Role>;
     status: 'active' | 'disabled';
 
     constructor(obj: IFullEmployeeInfo) {
@@ -40,6 +42,9 @@ export class Employee {
         }
         if (obj.status) {
             this.status = obj.status;
+        }
+        if (obj.roles) {
+            this.roles = obj.roles;
         }
     }
 

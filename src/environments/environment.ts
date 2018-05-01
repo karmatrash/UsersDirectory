@@ -13,6 +13,41 @@ export const environment = {
         storageBucket: 'users-directory.appspot.com',
         messagingSenderId: '1076393203749'
     },
-    gender: ['male', 'female']
+    gender: ['male', 'female'],
+    rolesSettings: [
+        {
+            primaryKey: 'title',
+            header: 'Title'
+        },
+        {
+            primaryKey: 'description',
+            header: 'Description'
+        }
+    ],
+    usersSettings: [
+        {
+            primaryKey: 'first_name',
+            header: 'Name'
+        },
+        {
+            primaryKey: 'last_name',
+            header: 'Surname'
+        },
+        {
+            primaryKey: 'email',
+            header: 'Email'
+        },
+        {
+            primaryKey: 'phone',
+            header: 'Phone'
+        },
+        {
+            primaryKey: 'created',
+            header: 'Registered'
+        },
+        {
+            primaryKey: 'key',
+            header: 'Actions'
+        }
+    ]
 };
-

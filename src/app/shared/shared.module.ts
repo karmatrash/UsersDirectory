@@ -7,11 +7,13 @@ import { TableCellComponent } from './components/table-cell/table-cell.component
 
 import { TableDatePipe } from './pipes/table-date.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        ModalModule.forRoot()
     ],
     declarations: [
         PhonePipe,
@@ -23,7 +25,8 @@ import { PhonePipe } from './pipes/phone.pipe';
         PhonePipe,
         TableDatePipe,
         DirectoryTableComponent,
-        TableCellComponent
+        TableCellComponent,
+        ModalModule
     ]
 })
 export class SharedModule {

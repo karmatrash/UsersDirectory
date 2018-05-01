@@ -1,3 +1,5 @@
+import { Role } from '../../../roles/role.model';
+
 export interface IFullEmployeeInfo {
     key: string;
     email: string;
@@ -8,4 +10,5 @@ export interface IFullEmployeeInfo {
     created: string;
     status: 'active' | 'disabled';
     updated?: string;
+    roles?: Array<Role>;
 }

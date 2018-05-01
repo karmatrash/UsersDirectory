@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
 import { RolesComponent } from './roles.component';
+import { RoleModalComponent } from './role-modal/role-modal.component';
 
 const rolesRoutes: Routes = [
     {path: '', component: RolesComponent}
@@ -17,7 +18,11 @@ const rolesRoutes: Routes = [
         SharedModule
     ],
     declarations: [
-        RolesComponent
+        RolesComponent,
+        RoleModalComponent
+    ],
+    entryComponents: [
+        RoleModalComponent
     ]
 })
 export class RolesModule {
