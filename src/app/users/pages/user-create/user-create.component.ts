@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 
-import { UserForms } from '../../shared/user.forms';
-import { UsersService } from '../../shared/users.service';
 import { IFullUserInfo } from '../../shared/interfaces/user.interface';
+import { UsersService } from '../../shared/users.service';
 
 @Component({
     selector: 'app-user-create',
@@ -17,6 +15,7 @@ export class UserCreateComponent implements OnInit {
     ngOnInit() {}
 
     createUser(v: IFullUserInfo) {
+        console.log('creation');
         console.log(v);
         this.usersService.createUser(v);
     }

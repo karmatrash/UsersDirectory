@@ -5,4 +5,6 @@ export interface IFullUserInfo {
     phone: string;
     first_name: string;
     last_name: string;
+    created: string;
+    updated?: string;
 }

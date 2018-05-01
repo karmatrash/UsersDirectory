@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { IFullUserInfo } from '../../interfaces/user.interface';
 import { User } from '../../models/users.model';
 import { UserForms } from '../../user.forms';
 import { Observable } from 'rxjs/Observable';
-import { IFullUserInfo } from '../../interfaces/user.interface';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-user-form',
@@ -14,8 +15,17 @@ import { IFullUserInfo } from '../../interfaces/user.interface';
 export class UserFormComponent implements OnInit {
     userForm: FormGroup;
 
+    /**
+     * Input param target - defines the sense of submitting - 'create' | 'edit'
+     * Input param data - defines the data to be displayed in form - User | none
+     */
     @Input() target: string;
     @Input() data: Observable<User>;
+
+    /**
+     * Outputting event with two cases for both possible parents - UsersCreate | UsersDetails
+     * @type {EventEmitter<any>}
+     */
     @Output() formSubmitted = new EventEmitter();
 
     constructor(private forms: UserForms) {
@@ -23,19 +33,25 @@ export class UserFormComponent implements OnInit {
 
     ngOnInit() {
         this.userForm = this.forms.getUserForm();
-
-        console.log('User-form component got next data:');
         console.log(this.target);
 
         if (this.data) {
             this.data.subscribe((user) => {
                 this.userForm.setValue(user);
-                console.log(this.userForm);
             });
         }
     }
 
     onSubmitForm(v: IFullUserInfo) {
+        console.log(v);
+        switch (this.target) {
+            case 'edit':
+                v.updated = moment().format('HH:mm DD.MM.YYYY');
+                break;
+            case 'create':
+                v.created = moment().format('HH:mm DD.MM.YYYY');
+                break;
+        }
         this.formSubmitted.emit(v);
     }
 }

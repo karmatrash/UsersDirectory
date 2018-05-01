@@ -8,6 +8,7 @@ export class User {
     first_name: string;
     last_name: string;
     created: string;
+    updated: string;
 
     constructor(obj: IFullUserInfo) {
         if (obj.email) {
@@ -26,6 +27,12 @@ export class User {
         }
         if (obj.last_name) {
             this.last_name = obj.last_name;
+        }
+        if (obj.created) {
+            this.created = obj.created;
+        }
+        if (obj.updated) {
+            this.updated = obj.updated;
         }
         if (obj.key) {
             this.key = obj.key;

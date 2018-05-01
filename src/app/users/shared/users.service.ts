@@ -5,6 +5,7 @@ import { IFullUserInfo } from './interfaces/user.interface';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { User } from './models/users.model';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UsersService {
@@ -29,7 +30,8 @@ export class UsersService {
      * April 3, 2018 - $key variable become deprecated
      * @param {AngularFirestore} afs
      */
-    constructor(private afs: AngularFirestore) {
+    constructor(private afs: AngularFirestore,
+                private router: Router) {
         this.usersCol = this.afs.collection('users');
         this.usersObservableFireStoreArray = this.usersCol.snapshotChanges()
             .map(changes => {
@@ -72,6 +74,15 @@ export class UsersService {
         this.usersCol.add(user as User)
             .then(() => {
                 console.log('User has been successfully created');
+                this.router.navigate(['users']);
             });
     }
+
+    // public deleteUser(key: string) {
+    //     this.usersCol.doc(key).delete()
+    //         .then(() => {
+    //             console.log('User has been successfully created');
+    //             this.router.navigate(['users']);
+    //         });
+    // }
 }

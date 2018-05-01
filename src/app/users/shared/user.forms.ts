@@ -5,12 +5,13 @@ export class UserForms {
 
     getUserForm(): FormGroup {
         return this.fb.group({
-            'id': ['', [Validators.required]],
             'first_name': ['', [Validators.required]],
             'last_name': ['', [Validators.required]],
             'email': ['', [Validators.required, Validators.email]],
             'phone': ['', [Validators.required]],
             'gender': ['', [Validators.required]],
+            'created': ['', [Validators.required]],
+            'updated': ['', [Validators.required]]
         });
     }
 }

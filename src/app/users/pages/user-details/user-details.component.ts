@@ -17,12 +17,12 @@ export class UserDetailsComponent implements OnInit {
     public user: Observable<User>;
 
     constructor(private route: ActivatedRoute,
-                private users: UsersService) {
+                private usersService: UsersService) {
     }
 
     ngOnInit() {
         this.userKey = this.route.snapshot.params.key;
-        this.user = this.users.getUserByUID(this.userKey);
+        this.user = this.usersService.getUserByUID(this.userKey);
     }
 
     // onUpdate() {
@@ -37,6 +37,8 @@ export class UserDetailsComponent implements OnInit {
     // }
 
     editUser(user: IFullUserInfo) {
+        console.log('editing');
         console.log(user);
+        this.usersService.updateUser(this.userKey, user);
     }
 }
