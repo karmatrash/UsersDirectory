@@ -8,6 +8,8 @@ import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './pages/employee-details/employee-details.component';
 import { EmployeeCreateComponent } from './pages/employee-create/employee-create.component';
+import { EmployeeFormComponent } from './shared/components/employee-form/employee-form.component';
+import { EmployeeForm } from './shared/employee.form';
 
 const CustomSelectOptions: INgxSelectOptions = {
     optionValueField: 'id',
@@ -39,7 +41,11 @@ const employeeRoutes: Routes = [
         EmployeeRootComponent,
         EmployeeListComponent,
         EmployeeDetailsComponent,
-        EmployeeCreateComponent
+        EmployeeCreateComponent,
+        EmployeeFormComponent
+    ],
+    providers: [
+        EmployeeForm
     ]
 })
 export class EmployeeModule {

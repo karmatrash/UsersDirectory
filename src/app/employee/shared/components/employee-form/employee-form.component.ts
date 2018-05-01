@@ -1,29 +1,29 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { IFullUserInfo } from '../../interfaces/user.interface';
-import { User } from '../../models/users.model';
-import { UserForms } from '../../user.forms';
 import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';
 import { environment } from '../../../../../environments/environment';
+import { Employee } from '../../models/employee.model';
+import { EmployeeForm } from '../../employee.form';
+import { IFullEmployeeInfo } from '../../interfaces/employee.interface';
 
 @Component({
-    selector: 'app-user-form',
-    templateUrl: './user-form.component.html',
-    styleUrls: ['./user-form.component.scss']
+    selector: 'app-employee-form',
+    templateUrl: './employee-form.component.html',
+    styleUrls: ['./employee-form.component.scss']
 })
-export class UserFormComponent implements OnInit {
+    export class EmployeeFormComponent implements OnInit {
 
-    userForm: FormGroup;
+    employeeForm: FormGroup;
     gender: Array<string> = environment.gender;
 
     /**
      * Input param target - defines the sense of submitting - 'create' | 'edit'
-     * Input param data - defines the data to be displayed in form - User | none
+     * Input param data - defines the data to be displayed in form - Employee | none
      */
     @Input() target: string;
-    @Input() data: Observable<User>;
+    @Input() data: Observable<Employee>;
 
     /**
      * Outputting event with two cases for both possible parents - UsersCreate | UsersDetails
@@ -31,21 +31,23 @@ export class UserFormComponent implements OnInit {
      */
     @Output() formSubmitted = new EventEmitter();
 
-    constructor(private forms: UserForms) {
+    constructor(private forms: EmployeeForm) {
     }
 
     ngOnInit() {
-        this.userForm = this.forms.getUserForm();
+        console.log('employee form');
+
+        this.employeeForm = this.forms.getEmployeeForm();
         console.log(this.target);
 
         if (this.data) {
-            this.data.subscribe((user) => {
-                this.userForm.setValue(user);
+            this.data.subscribe((employee) => {
+                this.employeeForm.setValue(employee);
             });
         }
     }
 
-    onSubmitForm(v: IFullUserInfo) {
+    onSubmitForm(v: IFullEmployeeInfo) {
         console.log(v);
         switch (this.target) {
             case 'edit':

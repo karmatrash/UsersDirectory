@@ -54,7 +54,7 @@ export class EmployeeService {
      * @param {string} key
      * @param {IFullEmployeeInfo} employee
      */
-    public updateUser(key: string, employee: IFullEmployeeInfo) {
+    public updateEmployee(key: string, employee: IFullEmployeeInfo) {
         this.employeesCol.doc(key).update(employee)
             .then(() => {
                 console.log('Employee has been successfully updated');

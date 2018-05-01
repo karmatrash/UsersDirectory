@@ -1,5 +1,5 @@
 <div>
-    <form [formGroup]="userForm" (ngSubmit)="onSubmitForm(userForm.value)">
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmitForm(employeeForm.value)">
         <div class="form-group">
             <label for="first_name">First name:</label>
             <input id="first_name"
@@ -33,7 +33,7 @@
             <ngx-select
                 [items]="gender"
                 formControlName="gender"
-                [defaultValue]="userForm.controls['gender'].value">
+                [defaultValue]="employeeForm.controls['gender'].value">
             </ngx-select>
         </div>
 

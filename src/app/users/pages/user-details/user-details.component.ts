@@ -24,18 +24,6 @@ export class UserDetailsComponent implements OnInit {
         this.userKey = this.route.snapshot.params.key;
         this.user = this.usersService.getUserByUID(this.userKey);
     }
-
-    // onUpdate() {
-    //     this.users.updateUser(this.userKey, {
-    //         key: this.userKey,
-    //         email: 'testEditEmail',
-    //         gender: 'male',
-    //         phone: '9512545021',
-    //         first_name: 'test',
-    //         last_name: 'editor',
-    //     });
-    // }
-
     editUser(user: IFullUserInfo) {
         console.log('editing');
         console.log(user);

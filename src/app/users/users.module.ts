@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
 
-import { UserFormComponent } from './shared/components/user-form/user-form.component';
+
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
@@ -44,8 +44,7 @@ const usersRoutes: Routes = [
         UsersComponent,
         UsersListComponent,
         UserDetailsComponent,
-        UserCreateComponent,
-        UserFormComponent
+        UserCreateComponent
     ],
     providers: [
         UserForms

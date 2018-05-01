@@ -9,10 +9,6 @@ import { AppComponent } from './app.component';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
-import { EmployeeRootComponent } from './employee/employee-root.component';
-import { EmployeeListComponent } from './employee/pages/employee-list/employee-list.component';
-import { EmployeeDetailsComponent } from './employee/pages/employee-details/employee-details.component';
-import { EmployeeCreateComponent } from './employee/pages/employee-create/employee-create.component';
 
 const rootRoutes: Routes = [
     { path: 'users', loadChildren: 'app/users/users.module#UsersModule' },

@@ -1,3 +1,3 @@
-<p>
-  employee-details works!
-</p>
+<div class="container">
+    <app-employee-form [target]="'edit'" [data]="employee" (formSubmitted)="editEmploye($event)"></app-employee-form>
+</div>
