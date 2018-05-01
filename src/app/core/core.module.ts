@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { UsersService } from '../users/shared/users.service';
 import { RolesService } from '../roles/roles.service';
+import { EmployeeService } from '../employee/shared/employee.service';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { RolesService } from '../roles/roles.service';
     ],
     providers: [
         UsersService,
-        RolesService
+        RolesService,
+        EmployeeService
     ]
 })
 export class CoreModule {

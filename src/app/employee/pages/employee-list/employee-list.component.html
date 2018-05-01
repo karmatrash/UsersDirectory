@@ -1,0 +1,4 @@
+<div class="container">
+    <button class="btn btn-success" [routerLink]="['create']">Add employee</button>
+    <app-directory-table [data]="employees" [settings]="employeesSettings" [tableCellSwitcher]="true" [caption]="'Company employees'"></app-directory-table>
+</div>
