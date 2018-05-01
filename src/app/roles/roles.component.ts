@@ -11,6 +11,7 @@ import { Role } from './role.model';
 export class RolesComponent implements OnInit {
 
     public roles: Array<Role>;
+    public keys = ['Role title', 'Description'];
 
     constructor(public rolesService: RolesService) {}
 

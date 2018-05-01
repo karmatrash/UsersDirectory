@@ -1,17 +1,14 @@
 
+<h3>{{ caption }}</h3>
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Phone</th>
+      <th *ngFor="let map of columnMaps">{{ map.header }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of data" [routerLink]="['/users', user.key]">
-      <th>{{ user.fullName }}</th>
-      <th>{{ user.email }}</th>
-      <th>{{ user.phone | phone }}</th>
+    <tr *ngFor="let record of data">
+      <td *ngFor="let map of columnMaps">{{ record[map.primaryKey] }}</td>
     </tr>
   </tbody>
 </table>

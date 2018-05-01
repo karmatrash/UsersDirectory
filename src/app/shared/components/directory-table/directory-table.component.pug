@@ -1,14 +1,8 @@
+h3 {{ caption }}
 table(class='table table-hover')
     thead
         tr
-            th Username
-            th Email
-            th Phone
+            th(*ngFor="let map of columnMaps") {{ map.header }}
     tbody
-        tr(
-        *ngFor="let user of data",
-        [routerLink]="['/users', user.key]"
-        )
-            th {{ user.fullName }}
-            th {{ user.email }}
-            th {{ user.phone | phone }}
+        tr(*ngFor="let record of data")
+            td(*ngFor="let map of columnMaps") {{ record[map.primaryKey] }}

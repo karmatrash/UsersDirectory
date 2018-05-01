@@ -44,7 +44,6 @@ export class UsersService {
 
         // Observable Data Service BHS approach for storing async changing data
         this.usersObservableFireStoreArray.subscribe(users => {
-            console.log(users);
             this._users.next(users.map(user => new User(user)));
         });
     }
