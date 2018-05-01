@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { User } from '../../../users/shared/models/users.model';
 import { Role } from '../../../roles/role.model';
@@ -10,7 +10,7 @@ import ColumnSettings from '../../../users/shared/models/layout.model';
     templateUrl: './directory-table.component.html',
     styleUrls: ['./directory-table.component.scss']
 })
-export class DirectoryTableComponent implements OnInit, OnChanges {
+export class DirectoryTableComponent implements OnChanges {
 
     @Input() data: Array<User> | Array<Role>;
     @Input() caption: string;
@@ -21,8 +21,6 @@ export class DirectoryTableComponent implements OnInit, OnChanges {
     constructor() {
     }
 
-    ngOnInit() {}
-
     ngOnChanges(changes: SimpleChanges) {
         if (changes['data']) {
             this.data = changes['data'].currentValue;
@@ -32,6 +30,12 @@ export class DirectoryTableComponent implements OnInit, OnChanges {
         if (this.settings) {
             this.columnMaps = this.settings;
         } else {
+            this.noSettingsParsingColumnsLogic();
+        }
+    }
+
+    private noSettingsParsingColumnsLogic() {
+        if (this.data[0]) {
             this.columnMaps = Object.keys(this.data[0])
                 .map((key) => {
                     return {
@@ -41,7 +45,5 @@ export class DirectoryTableComponent implements OnInit, OnChanges {
                     };
                 });
         }
-        // this.keys = Object.keys(this.data[0]);
-        // console.log(this.keys);
     }
 }

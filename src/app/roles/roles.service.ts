@@ -15,7 +15,7 @@ export class RolesService {
 
     /**
      * ObservableDataService data store among the application
-     * @type {BehaviorSubject<Array<User>>}
+     * @type {BehaviorSubject<Array<Role>>}
      */
     private _roles: BehaviorSubject<Array<Role>> = new BehaviorSubject<Array<Role>>([]);
 
@@ -24,7 +24,7 @@ export class RolesService {
     }
 
     /**
-     * All the awful stuff with Observable User[] is made to get the UID from after last FireStore update
+     * All the awful stuff with Observable Role[] is made to get the UID from after last FireStore update
      * April 3, 2018 - $key variable become deprecated
      * @param {AngularFirestore} afs
      */
@@ -47,9 +47,9 @@ export class RolesService {
     }
 
     /**
-     * Request for getting user from collection, returning the Observable, might turn it into JSON obj in subscriber
+     * Request for getting Role from collection, returning the Observable, might turn it into JSON obj in subscriber
      * @param {string} key
-     * @returns {Observable<User>}
+     * @returns {Observable<Role>}
      */
     public getRoleByUID(key: string): Observable<Role> {
         const currentRoleDoc: AngularFirestoreDocument<Role> = this.rolesCol.doc(key);
@@ -59,7 +59,7 @@ export class RolesService {
     public createRole(role: Object) {
         this.rolesCol.add(role as Role)
             .then(() => {
-                console.log('User has been successfully created');
+                console.log('Role has been successfully created');
             });
     }
 }

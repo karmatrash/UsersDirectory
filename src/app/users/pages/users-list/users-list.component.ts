@@ -32,6 +32,10 @@ export class UsersListComponent implements OnInit {
         {
             primaryKey: 'created',
             header: 'Registered'
+        },
+        {
+            primaryKey: 'key',
+            header: 'Actions'
         }
     ];
 

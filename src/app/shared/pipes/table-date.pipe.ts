@@ -12,6 +12,6 @@ export class TableDatePipe implements PipeTransform {
      * @returns {any}
      */
     transform(value: string): any {
-        return moment().format('lll');
+        return moment(new Date(value).toISOString()).format('lll');
     }
 }

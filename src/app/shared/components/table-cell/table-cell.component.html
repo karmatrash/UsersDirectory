@@ -2,5 +2,8 @@
     <span *ngSwitchCase="'phone'">{{ value | phone }}</span>
     <span *ngSwitchCase="'created'">{{ value | tableDate}}</span>
     <span *ngSwitchCase="'updated'">{{ value | tableDate}}</span>
+    <button *ngSwitchCase="'key'"
+            class="btn btn-primary"
+            [routerLink]="['/users', value]">Details</button>
     <span *ngSwitchDefault>{{ value }}</span>
 </div>
