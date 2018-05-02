@@ -1,5 +1,5 @@
 export class Role {
-    key: string;
+    key?: string;
     title: string;
     description: string;
 

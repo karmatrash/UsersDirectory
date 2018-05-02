@@ -1,5 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { DirectoryTableComponent } from './components/directory-table/directory-table.component';
@@ -13,7 +14,8 @@ import { ModalModule } from 'ngx-bootstrap';
     imports: [
         CommonModule,
         RouterModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        FormsModule
     ],
     declarations: [
         PhonePipe,
@@ -26,7 +28,8 @@ import { ModalModule } from 'ngx-bootstrap';
         TableDatePipe,
         DirectoryTableComponent,
         TableCellComponent,
-        ModalModule
+        ModalModule,
+        FormsModule
     ]
 })
 export class SharedModule {

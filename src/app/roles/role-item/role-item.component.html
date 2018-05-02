@@ -1,0 +1,23 @@
+<div style="border: 2px; width: 500px;">
+    <form #roleForm>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input id="title"
+                   name="title"
+                   class="form-control"
+                   [(ngModel)]="role.title"
+                   type="text">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input id="description"
+                   name="description"
+                   class="form-control"
+                   [(ngModel)]="role.description"
+                   type="text">
+        </div>
+    </form>
+
+    <button class="btn btn-success" (click)="onCreateRole(roleForm)">Create new role</button>
+</div>

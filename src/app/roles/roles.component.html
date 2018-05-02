@@ -1,5 +1,5 @@
 
 <div class="container">
-  <button class="btn btn-success" (click)="openModalWithComponent()">Add role</button>
+  <app-role-item (roleCreated)="createRole($event)"></app-role-item>
   <app-directory-table [data]="roles" [tableCellSwitcher]="false" [settings]="rolesSettings" [caption]="'Role types'"></app-directory-table>
 </div>

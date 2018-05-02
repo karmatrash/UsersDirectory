@@ -1,5 +1,5 @@
 .container
-    button((click)="openModalWithComponent()", class="btn btn-success") Add role
+    app-role-item((roleCreated)="createRole($event)")
     app-directory-table(
         [data]="roles",
         [tableCellSwitcher]="false",
