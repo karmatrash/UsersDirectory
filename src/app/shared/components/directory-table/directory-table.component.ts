@@ -12,6 +12,12 @@ import ColumnSettings from '../../../employee/shared/models/layout.model';
 })
 export class DirectoryTableComponent implements OnChanges {
 
+    /**
+     * data - contains the displayed array with - Employee | Role
+     * caption - the table title string - String
+     * settins - array tells how to render current table with its $Keys - ColumnSettings
+     * tableCellSwitcher - flag to desire if its going to be used TableSellComponent with more view approaches - boolean
+     */
     @Input() data: Array<Employee> | Array<Role>;
     @Input() caption: string;
     @Input() settings: Array<ColumnSettings>;
@@ -34,6 +40,9 @@ export class DirectoryTableComponent implements OnChanges {
         }
     }
 
+    /**
+     * Logic of improving columns at least to UpperCase if there is no settings provided to table
+     */
     private noSettingsParsingColumnsLogic() {
         if (this.data[0]) {
             this.columnMaps = Object.keys(this.data[0])
