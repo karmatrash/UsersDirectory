@@ -9,6 +9,7 @@ import { AppNavComponent } from './app-nav/app-nav.component';
 import { UsersService } from '../users/shared/users.service';
 import { RolesService } from '../roles/roles.service';
 import { EmployeeService } from '../employee/shared/employee.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     imports: [
@@ -18,10 +19,12 @@ import { EmployeeService } from '../employee/shared/employee.service';
         AngularFirestoreModule
     ],
     exports: [
-        AppNavComponent
+        AppNavComponent,
+        FooterComponent
     ],
     declarations: [
-        AppNavComponent
+        AppNavComponent,
+        FooterComponent
     ],
     providers: [
         UsersService,

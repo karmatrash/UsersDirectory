@@ -1,4 +1,7 @@
 <div class="container">
-    <button class="btn btn-success" [routerLink]="['create']">Add employee</button>
+    <div class="table-title" style="display: flex; justify-content: space-around">
+        <div class="table-caption">Company employees</div>
+        <button class="btn btn-success" [routerLink]="['create']">Add employee</button>
+    </div>
     <app-directory-table [data]="employees" [settings]="employeesSettings" [tableCellSwitcher]="true" [caption]="'Company employees'"></app-directory-table>
 </div>
