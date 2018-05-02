@@ -56,6 +56,10 @@ export class RolesService {
         return currentRoleDoc.valueChanges();
     }
 
+    /**
+     * Method creates a new document into RolesCollection
+     * @param {Object} role
+     */
     public createRole(role: Object) {
         this.rolesCol.add(role as Role)
             .then(() => {
