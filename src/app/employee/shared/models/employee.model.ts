@@ -10,7 +10,7 @@ export class Employee {
     last_name: string;
     created: string;
     updated: string;
-    roles?: Array<Role>;
+    roles?: Array<Object | Role>;
     status: 'active' | 'disabled';
 
     constructor(obj: IFullEmployeeInfo) {
@@ -44,11 +44,7 @@ export class Employee {
             this.status = obj.status;
         }
         if (obj.roles) {
-            this.roles = obj.roles;
+            this.roles = obj.roles.map(role => new Role(role));
         }
-    }
-
-    get fullName(): string {
-        return [this.first_name, this.last_name].join(' ');
     }
 }

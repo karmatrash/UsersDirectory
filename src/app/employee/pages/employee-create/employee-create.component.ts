@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { EmployeeService } from '../../shared/employee.service';
 import { IFullEmployeeInfo } from '../../shared/interfaces/employee.interface';
+import { EmployeeService } from '../../shared/employee.service';
 
 @Component({
   selector: 'app-employee-create',
@@ -9,13 +9,13 @@ import { IFullEmployeeInfo } from '../../shared/interfaces/employee.interface';
   styleUrls: ['./employee-create.component.scss']
 })
 export class EmployeeCreateComponent implements OnInit {
+
     constructor(private employeeService: EmployeeService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     createEmployee(v: IFullEmployeeInfo) {
-        console.log('creation');
-        console.log(v);
         this.employeeService.createEmployee(v);
     }
 }

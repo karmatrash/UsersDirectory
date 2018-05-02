@@ -6,11 +6,17 @@ import { NgModule } from '@angular/core';
 import { DirectoryTableComponent } from './components/directory-table/directory-table.component';
 import { TableCellComponent } from './components/table-cell/table-cell.component';
 
+import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
 import { TableDatePipe } from './pipes/table-date.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
 
 import { ModalModule } from 'ngx-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
+
+const CustomSelectOptions: INgxSelectOptions = {
+    optionValueField: 'id',
+    optionTextField: 'title'
+};
 
 @NgModule({
     imports: [
@@ -18,6 +24,7 @@ import { NgxMaskModule } from 'ngx-mask';
         RouterModule,
         ModalModule.forRoot(),
         NgxMaskModule.forRoot(),
+        NgxSelectModule.forRoot(CustomSelectOptions),
         FormsModule
     ],
     declarations: [
@@ -33,7 +40,8 @@ import { NgxMaskModule } from 'ngx-mask';
         TableCellComponent,
         ModalModule,
         NgxMaskModule,
-        FormsModule
+        FormsModule,
+        NgxSelectModule
     ]
 })
 export class SharedModule {

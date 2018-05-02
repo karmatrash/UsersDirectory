@@ -58,6 +58,23 @@
         </div>
     </div>
 
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <label for="roles">Roles:</label>
+                <ngx-select
+                    [items]="possibleRoles"
+                    formControlName="roles"
+                    [optionTextField]="'title'"
+                    [optionValueField]="'key'"
+                    [defaultValue]="employeeForm.controls['roles']"
+                    [multiple]="true"
+                    id="roles">
+                </ngx-select>
+            </div>
+        </div>
+    </div>
+
     <div class="form-buttons">
         <button type="button" class="btn btn-default" (click)="onBackButton()">Back</button>
 

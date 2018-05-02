@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 
 import { IFullEmployeeInfo } from '../../interfaces/employee.interface';
 import { environment } from '../../../../../environments/environment';
+import { RolesService } from '../../../../roles/roles.service';
 import { Employee } from '../../models/employee.model';
+import { Role } from '../../../../roles/role.model';
 import { EmployeeForm } from '../../employee.form';
 import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';
@@ -16,8 +18,9 @@ import * as moment from 'moment';
 })
     export class EmployeeFormComponent implements OnInit {
 
-    employeeForm: FormGroup;
-    gender: Array<string> = environment.gender;
+    public employeeForm: FormGroup;
+    public gender: Array<string> = environment.gender;
+    public possibleRoles: Array<Role>;
 
     /**
      * Input param target - defines the sense of submitting - 'create' | 'edit'
@@ -33,34 +36,46 @@ import * as moment from 'moment';
     @Output() formSubmitted = new EventEmitter();
 
     constructor(private forms: EmployeeForm,
-                private router: Router) {
+                private router: Router,
+                private rolesService: RolesService) {
     }
 
     ngOnInit() {
+        this.rolesService.roles
+            .subscribe((roles) => {
+                this.possibleRoles = roles;
+            });
+
         this.employeeForm = this.forms.getEmployeeForm();
+        console.log(this.employeeForm);
         console.log(this.target);
 
         if (this.data) {
             this.data.subscribe((employee) => {
+                employee.roles = employee.roles.map(role => role['key']);
                 this.employeeForm.setValue(employee);
             });
         }
     }
 
     onSubmitForm(v: IFullEmployeeInfo) {
-        console.log(v);
+        v.roles = this.possibleRoles.filter(role => v.roles.includes(role.key));
         switch (this.target) {
             case 'edit':
                 v.updated = moment().format('HH:mm DD.MM.YYYY');
                 break;
             case 'create':
                 v.created = moment().format('HH:mm DD.MM.YYYY');
+
                 break;
         }
-        this.formSubmitted.emit(v);
+        console.log(v);
+        this.formSubmitted.emit(JSON.parse(JSON.stringify(v)));
     }
 
     onBackButton() {
         this.router.navigate(['employees']);
     }
 }
+
+

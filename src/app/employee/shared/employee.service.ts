@@ -1,12 +1,11 @@
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
-
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
-import { Employee } from './models/employee.model';
 import { IFullEmployeeInfo } from './interfaces/employee.interface';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Employee } from './models/employee.model';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EmployeeService {
@@ -58,6 +57,7 @@ export class EmployeeService {
         this.employeesCol.doc(key).update(employee)
             .then(() => {
                 console.log('Employee has been successfully updated');
+                this.router.navigate(['employees']);
             });
     }
 
@@ -71,6 +71,10 @@ export class EmployeeService {
         return currentUserDoc.valueChanges();
     }
 
+    /**
+     *  Creating new collection Employee item with abstract DTO interface
+     * @param {IFullEmployeeInfo} employee
+     */
     public createEmployee(employee: IFullEmployeeInfo) {
         this.employeesCol.add(employee as Employee)
             .then(() => {
@@ -78,12 +82,4 @@ export class EmployeeService {
                 this.router.navigate(['employees']);
             });
     }
-
-    // public deleteUser(key: string) {
-    //     this.usersCol.doc(key).delete()
-    //         .then(() => {
-    //             console.log('User has been successfully created');
-    //             this.router.navigate(['users']);
-    //         });
-    // }
 }

@@ -10,5 +10,5 @@ export interface IFullEmployeeInfo {
     created: string;
     status: 'active' | 'disabled';
     updated?: string;
-    roles?: Array<Role>;
+    roles?: Array<Object | Role>;
 }

@@ -22,7 +22,7 @@ export class PhonePipe implements PipeTransform {
                 cut = value.match(/(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})/);
                 return `+${cut[1]} (${cut[2]}) ${cut[3]}-${cut[4]}-${cut[5]}`;
             default:
-                return value;
+                return 'Not available';
         }
     }
 }

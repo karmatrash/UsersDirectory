@@ -1,7 +1,7 @@
 <div class="table-cell" [ngSwitch]="key">
     <span *ngSwitchCase="'phone'">{{ value | phone }}</span>
-    <span *ngSwitchCase="'created'">{{ value }}</span>
-    <span *ngSwitchCase="'updated'">{{ value }}</span>
+    <span *ngSwitchCase="'created'">{{ value | tableDate }}</span>
+    <span *ngSwitchCase="'updated'">{{ value | tableDate}}</span>
     <button *ngSwitchCase="'key'"
             class="btn btn-primary"
             [routerLink]="['/employees', value]">Details</button>

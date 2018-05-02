@@ -11,7 +11,8 @@ export class EmployeeForm {
             'phone': ['38', [Validators.required]],
             'gender': ['', [Validators.required]],
             'created': ['', [Validators.required]],
-            'updated': ['', [Validators.required]]
+            'updated': ['', [Validators.required]],
+            'roles': [[]]
         });
     }
 }

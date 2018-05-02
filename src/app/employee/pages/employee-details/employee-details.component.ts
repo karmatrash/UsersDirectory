@@ -24,9 +24,9 @@ export class EmployeeDetailsComponent implements OnInit {
         this.employee = this.employeeService.getEmployeeByUID(this.employeeKey);
     }
 
-    editEmploye(employe: IFullEmployeeInfo) {
+    editEmployee(employee: IFullEmployeeInfo) {
         console.log('editing');
-        console.log(employe);
-        this.employeeService.updateEmployee(this.employeeKey, employe);
+        console.log(employee);
+        this.employeeService.updateEmployee(this.employeeKey, employee);
     }
 }
