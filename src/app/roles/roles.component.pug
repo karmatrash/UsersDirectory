@@ -1,7 +1,12 @@
 .container
-    app-role-item((roleCreated)="createRole($event)")
-    app-directory-table(
-        [data]="roles",
-        [tableCellSwitcher]="false",
-        [settings]="rolesSettings",
-        [caption]="'Role types'")
+    .table-title
+        .table-caption Roles types
+    .row
+        .col-md-4
+            app-role-item((roleCreated)="createRole($event)")
+        .col-md-8
+            app-directory-table(
+            [data]="roles",
+            [tableCellSwitcher]="false",
+            [settings]="rolesSettings",
+            [caption]="'Role types'")

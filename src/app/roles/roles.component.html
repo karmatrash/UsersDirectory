@@ -1,5 +1,14 @@
 
 <div class="container">
-  <app-role-item (roleCreated)="createRole($event)"></app-role-item>
-  <app-directory-table [data]="roles" [tableCellSwitcher]="false" [settings]="rolesSettings" [caption]="'Role types'"></app-directory-table>
+  <div class="table-title">
+    <div class="table-caption">Roles types</div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <app-role-item (roleCreated)="createRole($event)"></app-role-item>
+    </div>
+    <div class="col-md-8">
+      <app-directory-table [data]="roles" [tableCellSwitcher]="false" [settings]="rolesSettings" [caption]="'Role types'"></app-directory-table>
+    </div>
+  </div>
 </div>
