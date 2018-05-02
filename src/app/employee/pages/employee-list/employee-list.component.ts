@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { environment } from '../../../../environments/environment';
 import { EmployeeService } from '../../shared/employee.service';
 import { Employee } from '../../shared/models/employee.model';
 import ColumnSettings from '../../shared/models/layout.model';
-import { environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'app-employee-list',

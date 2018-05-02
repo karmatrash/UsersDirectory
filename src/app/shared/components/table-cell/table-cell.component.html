@@ -6,7 +6,7 @@
         <div *ngFor="let role of value">{{ role.title }}</div>
     </div>
     <button *ngSwitchCase="'key'"
-            class="btn btn-primary"
+            class="btn btn-default"
             [routerLink]="['/employees', value]">Details</button>
     <span *ngSwitchDefault>{{ value }}</span>
 </div>
