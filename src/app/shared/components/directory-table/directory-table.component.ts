@@ -15,7 +15,7 @@ export class DirectoryTableComponent implements OnChanges {
     @Input() data: Array<User> | Array<Role>;
     @Input() caption: string;
     @Input() settings: Array<ColumnSettings>;
-    @Input() tableCellSwitcher: boolean;
+    @Input() tableCellSwitcher = true;
     public columnMaps: Array<ColumnSettings>;
 
     constructor() {
@@ -29,6 +29,7 @@ export class DirectoryTableComponent implements OnChanges {
 
         if (this.settings) {
             this.columnMaps = this.settings;
+            console.log(this.columnMaps);
         } else {
             this.noSettingsParsingColumnsLogic();
         }

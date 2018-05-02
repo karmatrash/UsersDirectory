@@ -24,7 +24,7 @@ export const environment = {
             header: 'Description'
         }
     ],
-    usersSettings: [
+    employeeSettings: [
         {
             primaryKey: 'first_name',
             header: 'Name'
@@ -44,6 +44,10 @@ export const environment = {
         {
             primaryKey: 'created',
             header: 'Registered'
+        },
+        {
+            primaryKey: 'roles',
+            header: 'Roles'
         },
         {
             primaryKey: 'key',

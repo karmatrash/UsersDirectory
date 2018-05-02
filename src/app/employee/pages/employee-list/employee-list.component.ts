@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../shared/employee.service';
 import { Employee } from '../../shared/models/employee.model';
 import ColumnSettings from '../../../users/shared/models/layout.model';
+import { environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'app-employee-list',
@@ -11,32 +12,7 @@ import ColumnSettings from '../../../users/shared/models/layout.model';
 export class EmployeeListComponent implements OnInit {
 
     public employees: Array<Employee>;
-    public employeesSettings: Array<ColumnSettings> = [
-        {
-            primaryKey: 'first_name',
-            header: 'Name'
-        },
-        {
-            primaryKey: 'last_name',
-            header: 'Surname'
-        },
-        {
-            primaryKey: 'email',
-            header: 'Email'
-        },
-        {
-            primaryKey: 'phone',
-            header: 'Phone'
-        },
-        {
-            primaryKey: 'created',
-            header: 'Registered'
-        },
-        {
-            primaryKey: 'key',
-            header: 'Actions'
-        }
-    ];
+    public employeesSettings: Array<ColumnSettings> = environment.employeeSettings;
 
     constructor(private employeeService: EmployeeService) {
     }

@@ -13,7 +13,7 @@ import { environment } from '../../../../environments/environment';
 export class UsersListComponent implements OnInit {
 
     public users: Array<User>;
-    public usersSettings: Array<ColumnSettings> = environment.usersSettings;
+    public usersSettings: Array<ColumnSettings> = [];
 
     constructor(private usersService: UsersService) {}
 
