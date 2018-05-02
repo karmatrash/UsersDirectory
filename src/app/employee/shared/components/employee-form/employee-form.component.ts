@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
-import * as moment from 'moment';
+import { IFullEmployeeInfo } from '../../interfaces/employee.interface';
 import { environment } from '../../../../../environments/environment';
 import { Employee } from '../../models/employee.model';
 import { EmployeeForm } from '../../employee.form';
-import { IFullEmployeeInfo } from '../../interfaces/employee.interface';
+import { Observable } from 'rxjs/Observable';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-employee-form',
@@ -31,12 +32,11 @@ import { IFullEmployeeInfo } from '../../interfaces/employee.interface';
      */
     @Output() formSubmitted = new EventEmitter();
 
-    constructor(private forms: EmployeeForm) {
+    constructor(private forms: EmployeeForm,
+                private router: Router) {
     }
 
     ngOnInit() {
-        console.log('employee form');
-
         this.employeeForm = this.forms.getEmployeeForm();
         console.log(this.target);
 
@@ -58,5 +58,9 @@ import { IFullEmployeeInfo } from '../../interfaces/employee.interface';
                 break;
         }
         this.formSubmitted.emit(v);
+    }
+
+    onBackButton() {
+        this.router.navigate(['employees']);
     }
 }

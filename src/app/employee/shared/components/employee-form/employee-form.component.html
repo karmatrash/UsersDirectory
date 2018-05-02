@@ -1,44 +1,67 @@
-<div>
-    <form [formGroup]="employeeForm" (ngSubmit)="onSubmitForm(employeeForm.value)">
-        <div class="form-group">
-            <label for="first_name">First name:</label>
-            <input id="first_name"
-                   formControlName="first_name"
-                   type="text">
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmitForm(employeeForm.value)">
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <label for="first_name">First name:</label>
+                <input id="first_name"
+                       class="form-control"
+                       formControlName="first_name"
+                       type="text">
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="last_name">Last name:</label>
-            <input id="last_name"
-                   formControlName="last_name"
-                   type="text">
+        <div class="col">
+            <div class="form-group">
+                <label for="last_name">Last name:</label>
+                <input id="last_name"
+                       class="form-control"
+                       formControlName="last_name"
+                       type="text">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email"
+                       class="form-control"
+                       formControlName="email"
+                       type="email">
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input id="email"
-                   formControlName="email"
-                   type="email">
+        <div class="col">
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input id="phone"
+                       type="tel"
+                       class="form-control"
+                       formControlName="phone"
+                       mask="+38 (999) 999-99-99">
+            </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="phone">Phone:</label>
-            <input id="phone"
-                   type="tel"
-                   formControlName="phone"
-                   mask="+38 (999) 999-99-99">
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <ngx-select
+                    [items]="gender"
+                    formControlName="gender"
+                    id="gender"
+                    [defaultValue]="employeeForm.controls['gender'].value">
+                </ngx-select>
+            </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label>Gender:</label>
-            <ngx-select
-                [items]="gender"
-                formControlName="gender"
-                [defaultValue]="employeeForm.controls['gender'].value">
-            </ngx-select>
-        </div>
+    <div class="form-buttons">
+        <button type="button" class="btn btn-default" (click)="onBackButton()">Back</button>
 
         <button type="submit" *ngIf="target === 'edit'" class="btn btn-primary">Edit</button>
         <button type="submit" *ngIf="target === 'create'" class="btn btn-success">Create</button>
-    </form>
-</div>
+    </div>
+</form>

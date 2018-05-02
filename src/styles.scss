@@ -125,7 +125,7 @@ app-root {
 .table-title {
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
+    padding: 0 0 15px;
     align-items: center;
 
     .table-caption {
@@ -136,4 +136,9 @@ app-root {
 
 .row-collumn {
     flex-direction: column;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
 }

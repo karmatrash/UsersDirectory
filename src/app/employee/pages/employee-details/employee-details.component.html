@@ -1,3 +1,7 @@
 <div class="container">
-    <app-employee-form [target]="'edit'" [data]="employee" (formSubmitted)="editEmploye($event)"></app-employee-form>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <app-employee-form [target]="'edit'" [data]="employee" (formSubmitted)="editEmploye($event)"></app-employee-form>
+        </div>
+    </div>
 </div>
