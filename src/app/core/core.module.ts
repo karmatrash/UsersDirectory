@@ -6,7 +6,6 @@ import { NgModule } from '@angular/core';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AppNavComponent } from './app-nav/app-nav.component';
-import { UsersService } from '../users/shared/users.service';
 import { RolesService } from '../roles/roles.service';
 import { EmployeeService } from '../employee/shared/employee.service';
 import { FooterComponent } from './footer/footer.component';
@@ -27,7 +26,6 @@ import { FooterComponent } from './footer/footer.component';
         FooterComponent
     ],
     providers: [
-        UsersService,
         RolesService,
         EmployeeService
     ]

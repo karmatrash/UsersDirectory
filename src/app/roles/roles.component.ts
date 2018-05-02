@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RolesService } from './roles.service';
 import { Role } from './role.model';
 
-import ColumnSettings from '../users/shared/models/layout.model';
+import ColumnSettings from '../employee/shared/models/layout.model';
 import { environment } from '../../environments/environment';
 
 @Component({

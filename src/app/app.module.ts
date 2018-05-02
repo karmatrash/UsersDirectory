@@ -11,7 +11,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 
 const rootRoutes: Routes = [
-    { path: 'users', loadChildren: 'app/users/users.module#UsersModule' },
     { path: 'roles', loadChildren: 'app/roles/roles.module#RolesModule' },
     { path: 'employees', loadChildren: 'app/employee/employee.module#EmployeeModule' },
     { path: '',     redirectTo: 'employees', pathMatch: 'full' },

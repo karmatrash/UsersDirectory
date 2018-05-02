@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../shared/employee.service';
 import { Employee } from '../../shared/models/employee.model';
-import ColumnSettings from '../../../users/shared/models/layout.model';
+import ColumnSettings from '../../shared/models/layout.model';
 import { environment } from '../../../../environments/environment';
 
 @Component({

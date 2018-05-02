@@ -1,9 +1,9 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
-import { User } from '../../../users/shared/models/users.model';
+import { Employee } from '../../../employee/shared/models/employee.model';
 import { Role } from '../../../roles/role.model';
 
-import ColumnSettings from '../../../users/shared/models/layout.model';
+import ColumnSettings from '../../../employee/shared/models/layout.model';
 
 @Component({
     selector: 'app-directory-table',
@@ -12,7 +12,7 @@ import ColumnSettings from '../../../users/shared/models/layout.model';
 })
 export class DirectoryTableComponent implements OnChanges {
 
-    @Input() data: Array<User> | Array<Role>;
+    @Input() data: Array<Employee> | Array<Role>;
     @Input() caption: string;
     @Input() settings: Array<ColumnSettings>;
     @Input() tableCellSwitcher = true;
@@ -29,7 +29,6 @@ export class DirectoryTableComponent implements OnChanges {
 
         if (this.settings) {
             this.columnMaps = this.settings;
-            console.log(this.columnMaps);
         } else {
             this.noSettingsParsingColumnsLogic();
         }
