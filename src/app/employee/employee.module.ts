@@ -10,6 +10,7 @@ import { EmployeeDetailsComponent } from './pages/employee-details/employee-deta
 import { EmployeeCreateComponent } from './pages/employee-create/employee-create.component';
 import { EmployeeFormComponent } from './shared/components/employee-form/employee-form.component';
 import { EmployeeForm } from './shared/employee.form';
+import { NgxMaskModule } from 'ngx-mask';
 
 const CustomSelectOptions: INgxSelectOptions = {
     optionValueField: 'id',
@@ -35,14 +36,15 @@ const employeeRoutes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
-        NgxSelectModule.forRoot(CustomSelectOptions)
+        NgxSelectModule.forRoot(CustomSelectOptions),
+        NgxMaskModule.forRoot(),
     ],
     declarations: [
         EmployeeRootComponent,
         EmployeeListComponent,
         EmployeeDetailsComponent,
         EmployeeCreateComponent,
-        EmployeeFormComponent
+        EmployeeFormComponent,
     ],
     providers: [
         EmployeeForm

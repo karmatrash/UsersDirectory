@@ -8,7 +8,7 @@ export class EmployeeForm {
             'first_name': ['', [Validators.required]],
             'last_name': ['', [Validators.required]],
             'email': ['', [Validators.required, Validators.email]],
-            'phone': ['', [Validators.required]],
+            'phone': ['38', [Validators.required]],
             'gender': ['', [Validators.required]],
             'created': ['', [Validators.required]],
             'updated': ['', [Validators.required]]

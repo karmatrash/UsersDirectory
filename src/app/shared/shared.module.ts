@@ -8,13 +8,16 @@ import { TableCellComponent } from './components/table-cell/table-cell.component
 
 import { TableDatePipe } from './pipes/table-date.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
+
 import { ModalModule } from 'ngx-bootstrap';
+// import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         ModalModule.forRoot(),
+        // NgxMaskModule.forRoot(),
         FormsModule
     ],
     declarations: [
@@ -29,6 +32,7 @@ import { ModalModule } from 'ngx-bootstrap';
         DirectoryTableComponent,
         TableCellComponent,
         ModalModule,
+        // NgxMaskModule,
         FormsModule
     ]
 })

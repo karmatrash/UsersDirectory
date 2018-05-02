@@ -9,9 +9,9 @@ export class TableDatePipe implements PipeTransform {
     /**
      * We use this pipe to transform '17:07 01.05.2018' in 'May 1, 2018 11:11 PM' | TableCellComponent
      * @param {string} value
-     * @returns {any}
+     * @returns {string}
      */
-    transform(value: string): any {
+    transform(value: string): string {
         return moment(new Date(value).toISOString()).format('lll');
     }
 }
