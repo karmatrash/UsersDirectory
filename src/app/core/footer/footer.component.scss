@@ -1,0 +1,30 @@
+.footer {
+    position: relative;
+    background-color: #515151;
+    padding: 24px 0 19px;
+    height: 56px;
+    .row {
+        justify-content: space-between;
+        align-items: center;
+    }
+    a {
+        color: #ffffff;
+        font-size: 13px;
+        line-height: 1;
+        margin: 0;
+    }
+}
+
+.copyright {
+    color: #f2f5f1;
+    font-size: 12px;
+    line-height: 1;
+    margin: 0;
+}
+
+.address {
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1;
+    margin: 0;
+}

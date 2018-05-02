@@ -1,12 +1,54 @@
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <a href="javascript:void(0)" class="logo">
+                <img src="../../../assets/img/logo.png" style="height: 50px" alt="logo">
+            </a>
 
-<header class="navigation">
-  <div class="container">
-    <div class="row"><a class="logo">Logo ABSSQRT</a>
-      <ul>
-        <li [routerLink]="[&quot;/users&quot;]">Users</li>
-        <li [routerLink]="[&quot;/roles&quot;]">Roles</li>
-        <li [routerLink]="[&quot;/employees&quot;]">Employees</li>
-      </ul>
+            <ul class="menu">
+                <li class="hasChild">
+                    <a [routerLink]="['employees']"
+                       routerLinkActive="current-page">Employees</a>
+                </li>
+
+                <li class="hasChild">
+                    <a [routerLink]="['roles']"
+                       routerLinkActive="current-page">Roles</a>
+                </li>
+
+                <li class="hasChild">
+                    <a>Projects</a>
+                </li>
+            </ul>
+
+            <ul class="menu">
+                <li class="hasChild">
+                    <div class="avatar-wrapp">
+                        <div class="avatar">
+                            <img src="../../../assets/img/ava.png" alt="avatar">
+                        </div>
+                    </div>
+                </li>
+
+                <li class="hasChild">
+                    <div class="logout-wrapp">
+                        <div class="logout">
+                            <i class="icon-exit"></i> exit
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!--<div class="flex align-items-center">-->
+            <!--<div class="avatar" (click)="onNavigateToProfile()">-->
+            <!--<img src="../../../assets/img/avatar.png" alt="avatar">-->
+            <!--</div>-->
+
+            <!--<div class="logout" (click)="onLogout()">-->
+            <!--<i class="icon-exit"></i>-->
+            <!--</div>-->
+            <!--</div>-->
+
+        </div>
     </div>
-  </div>
 </header>
