@@ -13,6 +13,10 @@ import { environment } from '../../environments/environment';
 })
 export class RolesComponent implements OnInit {
 
+    /**
+     * roles - async Array subscribed to roleDataService changes - Array<Role>
+     * rolesSettings - table view params taken from environment - Array<ColumnSettings>
+     */
     public roles: Array<Role>;
     public rolesSettings: Array<ColumnSettings> = environment.rolesSettings;
 
@@ -25,9 +29,11 @@ export class RolesComponent implements OnInit {
             });
     }
 
+    /**
+     * Event we listen from child form creation of - Role
+     * @param {Role} v
+     */
     createRole(v: Role) {
-        console.log('creation');
-        console.log(v);
         this.rolesService.createRole(v);
     }
 }
