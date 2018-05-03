@@ -11,3 +11,9 @@ table(class='table table-hover')
                     [key]="map.primaryKey")
                 span(
                     *ngIf="!tableCellSwitcher") {{ record[map.primaryKey] }}
+
+div(class="three-bounce__wrapp", *ngIf="data.length === 0")
+    .three-bounce
+        .one
+        .two
+        .three
