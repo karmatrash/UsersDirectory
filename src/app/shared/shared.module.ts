@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { DirectoryTableComponent } from './components/directory-table/directory-table.component';
 import { TableCellComponent } from './components/table-cell/table-cell.component';
+import { TitleRowComponent } from './components/title-row/title-row.component';
 
 import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
 import { TableDatePipe } from './pipes/table-date.pipe';
@@ -31,7 +32,8 @@ const CustomSelectOptions: INgxSelectOptions = {
         PhonePipe,
         TableDatePipe,
         DirectoryTableComponent,
-        TableCellComponent
+        TableCellComponent,
+        TitleRowComponent
     ],
     exports: [
         PhonePipe,
@@ -41,7 +43,8 @@ const CustomSelectOptions: INgxSelectOptions = {
         ModalModule,
         NgxMaskModule,
         FormsModule,
-        NgxSelectModule
+        NgxSelectModule,
+        TitleRowComponent
     ]
 })
 export class SharedModule {

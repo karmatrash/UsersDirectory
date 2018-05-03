@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
 import { EmployeeService } from '../../shared/employee.service';
@@ -12,10 +13,15 @@ import ColumnSettings from '../../shared/models/layout.model';
 })
 export class EmployeeListComponent implements OnInit {
 
+    /**
+     * employees - async Array subscribed to employeeDataService changes - Array<Employee>
+     * employeesSettings - table view params taken from environment - Array<ColumnSettings>
+     */
     public employees: Array<Employee>;
     public employeesSettings: Array<ColumnSettings> = environment.employeeSettings;
 
-    constructor(private employeeService: EmployeeService) {
+    constructor(private employeeService: EmployeeService,
+                private router: Router) {
     }
 
     ngOnInit() {
@@ -24,5 +30,9 @@ export class EmployeeListComponent implements OnInit {
                 console.log(employees);
                 this.employees = employees;
             });
+    }
+
+    navigateToCreate() {
+        this.router.navigate(['employees/create']);
     }
 }

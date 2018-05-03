@@ -1,9 +1,15 @@
 <div class="container">
     <div class="row row-collumn">
-        <div class="table-title">
-            <div class="table-caption">Company employees</div>
-            <button class="btn btn-success" [routerLink]="['create']">Add employee</button>
-        </div>
-        <app-directory-table [data]="employees" [settings]="employeesSettings" [tableCellSwitcher]="true" [caption]="'Company employees'"></app-directory-table>
+        <app-title-row
+            [title]="'Company employees'"
+            [actionText]="'Add employee'"
+            (actionClicked)="navigateToCreate()">
+        </app-title-row>
+
+        <app-directory-table
+            [data]="employees"
+            [settings]="employeesSettings"
+            [tableCellSwitcher]="true">
+        </app-directory-table>
     </div>
 </div>

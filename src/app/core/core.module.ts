@@ -5,9 +5,10 @@ import { NgModule } from '@angular/core';
 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-import { AppNavComponent } from './app-nav/app-nav.component';
-import { RolesService } from '../roles/roles.service';
 import { EmployeeService } from '../employee/shared/employee.service';
+import { RolesService } from '../roles/roles.service';
+
+import { AppNavComponent } from './app-nav/app-nav.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
