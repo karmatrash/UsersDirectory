@@ -75,6 +75,20 @@
         </div>
     </div>
 
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <label type="text">Created: <i>{{ employeeForm.controls['created'].value }}</i></label>
+            </div>
+        </div>
+
+        <div class="col" *ngIf="employeeForm.controls['updated'].value !== ''">
+            <div class="form-group text-right">
+                <label type="text">Updated: <i>{{ employeeForm.controls['updated'].value }}</i></label>
+            </div>
+        </div>
+    </div>
+
     <div class="form-buttons">
         <button type="button" class="btn btn-default" (click)="onBackButton()">Back</button>
 

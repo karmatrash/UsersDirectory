@@ -12,6 +12,6 @@ export class TableDatePipe implements PipeTransform {
      * @returns {string}
      */
     transform(value: string): string {
-        return moment(value).format('MMM Do YYYY');
+        return moment(value, ['HH:mm DD.MM.YYYY']).format('MMMM Do YYYY');
     }
 }
