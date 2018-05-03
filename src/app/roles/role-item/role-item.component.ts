@@ -33,8 +33,14 @@ export class RoleItemComponent implements OnInit {
      * Submit button event passing THIS template driven object to parent
      */
     onCreateRole() {
-        console.log(this.role);
         this.roleCreated.emit(this.role);
+        this.clearRole();
+    }
+
+    /**
+     * Private method for clearing the instance of Role
+     */
+    private clearRole() {
         this.role = {
             title: '',
             description: ''

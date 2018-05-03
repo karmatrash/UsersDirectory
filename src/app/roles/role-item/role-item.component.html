@@ -19,5 +19,7 @@
         </div>
     </form>
 
-    <button class="btn btn-success" (click)="onCreateRole(roleForm)">Create new role</button>
+    <button class="btn btn-success"
+            [disabled]="role.title.length < 1 || role.description.length < 1"
+            (click)="onCreateRole(roleForm)">Create new role</button>
 </div>
